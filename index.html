@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/1.jpeg" sizes="32x32">
+    <title>$KAPSOL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Silkscreen', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+        /* Bagian Home */
+        .home {
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+
+        .home .main-img {
+            width: 70%;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .home .background-img,
+        .home .back-img,
+        .home .text-cuby {
+            position: absolute;
+            width: 60%;
+            top: -10%;
+            left: 40;
+            height: 100%;
+            z-index: 0;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .home .background-img {
+            z-index: -5;
+        }
+
+        .home .back-img {
+            z-index: -1;
+        }
+
+        .home .text-cuby {
+            font-size: 1100%;
+            color: #ee1111;
+            text-align: center;
+            line-height: 1;
+            top: 10%;
+            z-index: 0;
+            left: 20%;
+            color: #8b0eff;
+        }
+
+        .home .goto,
+        .home .cats {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .home .goto {
+            left: 5%;
+        }
+
+        .home .cats {
+            right: 5%;
+        }
+
+        /* Bagian Kedua */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section .content-box {
+            background: #ee1111;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            margin: 0 auto;
+            max-width: 800px;
+            font-size: 600%;
+        }
+
+        .section .text-box {
+            background: #ff0000;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        P {
+
+            font-size: 300%;
+
+        }
+
+        .section .text-box img {
+            width: 45%;
+            margin: 10px;
+            vertical-align: top;
+        }
+
+        .section .text-box div {
+            margin-top: 20px;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        /* Bagian Ketiga */
+        .section-3 {
+            position: relative;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section-3 img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .section-3 .fade-in {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        .section-3 .fade-in.visible {
+            opacity: 1;
+        }
+
+        .section-3 .final-text {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        /* Bagian Akhir */
+        .section-4 {
+            padding: 60px 20px;
+            text-align: center;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-4 .box {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .section-4 .box img {
+            max-width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .section-4 .box img:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .section-4 .text-box {
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .section-4 .text-box div {
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section-4 .text-box .text {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .section-4 .text-box .text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #copy-button {
+            background-color: #8b0eff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 9px;
+            margin-top: 10px;
+        }
+
+        #copy-button:hover {
+            background-color: #f79b9b;
+        }
+
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #ff0000;
+            /* Optional: background color */
+        }
+
+        .marquee {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 10s linear infinite;
+        }
+
+        .marquee img {
+            height: 100px;
+            /* Adjust the height as needed */
+            margin-right: 20px;
+            /* Spacing between images */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Bagian Home -->
+        <section class="home">
+            <div class="text-cuby">$KAPSOL</div>
+            <img src="img/logo.jpeg" alt="Main Image" class="main-img">
+            <img src="img/logo.jpeg" alt="Background Image" class="background-img">
+            <img src="img/logo.jpeg" alt="Back Image" class="back-img">
+            <div class="goto">$KAPSOL</div>
+        </section>
+        <center>
+            <div clsss="p">
+                <p id="copy-text" class="fade-in">CA XXXXXXXXXXXXXXXXXXXX</p>
+                <button id="copy-button">COPY CA</button>
+            </div>
+        </center>
+        </section>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <a href="https://x.com/cazzysolana" target="_blank"><img
+                    src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" width="60px"
+                    alt="Twitter"></a>
+            <a href="https://t.me/cazzysolana" target="_blank"><img
+                    src="https://logodownload.org/wp-content/uploads/2017/11/telegram-logo-8.png" width="60px"
+                    alt="Telegram"></a>
+            <a href="s" target="_blank"><img
+                    src="https://static.vecteezy.com/system/resources/previews/021/819/342/non_2x/fun-green-pill-free-png.png"
+                    width="60px" alt="Fun"></a>
+        </center>
+
+    </div>
+    </div>
+    </section>
+
+    <!-- Bagian Kedua -->
+    <section class="section">
+        <div class="section .P">
+            <h2 class="silkscreen-bold">ABOUT $KAPSOL</h2>
+            <p class="silkscreen-regular">Kapsol is a playful and vibrant character designed to capture attention and
+                spark joy. With its unique capsule-shaped head and cheerful expression, Kapsol embodies friendliness and
+                innovation</p>
+        </div>
+        <div class="text-box">
+            <img src="img/1.jpeg" alt="Photo 1">
+            <img src="img/2.jpeg" alt="Photo 2">
+            <div class="silkscreen-regular">$KAPSOL CAT'S CUTE</div>
+        </div>
+    </section>
+
+    <!-- Bagian Ketiga -->
+    <section class="section section-3">
+        <img src="img/3.jpeg" alt="Background Photo">
+        <div class="fade-in">CHILL</div>
+        <div class="fade-in">I'M GOING</div>
+        <div class="fade-in">I'M GOING KAPSOL AND</div>
+        <div class="fade-in final-text">MY NAME IS $KAPSOL</div>
+    </section>
+
+    <!-- Bagian Akhir -->
+    <section class="section section-4">
+        <div class="box">
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <img src="img/1.jpeg" alt="Photo 1">
+                    <img src="img/2.jpeg" alt="Photo 2">
+                    <img src="img/3.jpeg" alt="Photo 3">
+                    <!-- Repeat images if needed to extend the scrolling -->
+                </div>
+            </div>
+            <div class="text-box">
+                <div class="text">GALLERY</div>
+                <div class="text">GALLERY</div>
+                <div class="text">GALLERY</div>
+            </div>
+    </section>
+    <section class="section">
+        <div class="content-box">
+            <h2 class="silkscreen-bold">TOKENOMIC</h2>
+        </div>
+        <div class="p">
+            <P>Token Name = $KAPSOL
+                <br>
+
+                TICKER = $KAPSOL
+                <br>
+                TOTAL SUPPLAY = 1.000.000.0000
+                <br>
+                LIQUIDTY POLL BURNED = 100 %
+                <br>
+                TAXS = 0%
+            </P>
+        </div>
+        </div>
+
+
+    </section>
+    </div>
+    <script>
+        document.addEventListener('scroll', function () {
+            // Animasi untuk bagian ketiga
+            const fadeIns = document.querySelectorAll('.section-3 .fade-in');
+            fadeIns.forEach((el, index) => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 500); // Delay animasi
+                }
+            });
+
+            // Animasi untuk bagian akhir
+            const textBoxes = document.querySelectorAll('.section-4 .text-box .text');
+            textBoxes.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+    </script>
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>
